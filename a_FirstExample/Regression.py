@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
+# %%
 # Read dataset
 x, y = [], []
 for sample in open("../_Data/prices.txt", "r"):
@@ -18,6 +18,7 @@ plt.show()
 
 x0 = np.linspace(-2, 4, 100)
 
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Get regression model under LSE criterion with degree 'deg'
 def get_model(deg):
@@ -27,6 +28,7 @@ def get_model(deg):
 # Get the cost of regression model above under given x, y
 def get_cost(deg, input_x, input_y):
     return 0.5 * ((get_model(deg)(input_x) - input_y) ** 2).sum()
+
 
 # Set degrees
 test_set = (1, 4, 10)
@@ -41,3 +43,5 @@ plt.xlim(-2, 4)
 plt.ylim(1e5, 8e5)
 plt.legend()
 plt.show()
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

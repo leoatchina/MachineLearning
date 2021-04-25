@@ -1,18 +1,18 @@
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 import os
 import sys
-root_path = os.path.abspath("../../")
-if root_path not in sys.path:
-    sys.path.append(root_path)
-
 import numpy as np
 from math import pi, exp
 
 from Util.Timing import Timing
 from Util.Bases import ClassifierBase
 
+root_path = os.path.abspath("../../")
+if root_path not in sys.path:
+    sys.path.append(root_path)
+
 sqrt_pi = (2 * pi) ** 0.5
-
-
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 class NBFunctions:
     @staticmethod
     def gaussian(x, mu, sigma):
