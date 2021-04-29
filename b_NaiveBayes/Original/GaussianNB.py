@@ -10,7 +10,7 @@ from b_NaiveBayes.Original.Basic import *
 from b_NaiveBayes.Original.MultinomialNB import MultinomialNB
 
 from Util.Util import DataUtil
-
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 class GaussianNB(NaiveBayes):
     GaussianNBTiming = Timing()

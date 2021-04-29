@@ -18,7 +18,6 @@ plt.show()
 
 x0 = np.linspace(-2, 4, 100)
 
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Get regression model under LSE criterion with degree 'deg'
 def get_model(deg):
@@ -39,6 +38,7 @@ for d in test_set:
 plt.scatter(x, y, c="g", s=20)
 for d in test_set:
     plt.plot(x0, get_model(d)(), label="degree = {}".format(d))
+
 plt.xlim(-2, 4)
 plt.ylim(1e5, 8e5)
 plt.legend()
