@@ -28,19 +28,20 @@ class Timing:
             try:
                 _func_name = "{:>28}".format(func.__name__ if func_name is None else func_name)
             except AttributeError:
-                str_func = str(func)
-                _at_idx = str_func.rfind("at")
-                _dot_idx = str_func.rfind(".", None, _at_idx)
+                str_func   = str(func)
+                _at_idx    = str_func.rfind("at")
+                _dot_idx   = str_func.rfind(".", None, _at_idx)
                 _func_name = "{:>28}".format(str_func[_dot_idx+1:_at_idx-1])
-            _name = instance_name + _prefix + _func_name
+            _n = instance_name + _prefix + _func_name
             _t = time.time()
-            rs = func(*args, **kwargs)
             _t = time.time() - _t
+            rs = func(*args, **kwargs)
+            # 这个decorator写的好爽啊！
             try:
-                cls.timings[_name]["timing"] += _t
-                cls.timings[_name]["call_time"] += 1
+                cls.timings[_n]["timing"]    += _t
+                cls.timings[_n]["call_time"] += 1
             except KeyError:
-                cls.timings[_name] = {
+                cls.timings[_n] = {
                     "level": level,
                     "timing": _t,
                     "call_time": 1
@@ -57,13 +58,16 @@ class Timing:
                 timing_info = cls.timings[key]
                 if level >= timing_info["level"]:
                     print("{:<42s} :  {:12.7} s (Call Time: {:6d})".format(
-                        key, timing_info["timing"], timing_info["call_time"]))
+                        key, timing_info["timing"], timing_info["call_time"]
+                    ))
         print("-" * 110)
 
     @classmethod
     def disable(cls):
         cls.enabled = False
 
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if __name__ == '__main__':
     class Test:
         timing = Timing()

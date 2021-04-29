@@ -4,12 +4,14 @@ import sys
 import numpy as np
 from math import pi, exp
 
-from Util.Timing import Timing
-from Util.Bases import ClassifierBase
-
 root_path = os.path.abspath("../../")
 if root_path not in sys.path:
     sys.path.append(root_path)
+from Util.Timing import Timing
+from Util.Bases import ClassifierBase
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 sqrt_pi = (2 * pi) ** 0.5
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -94,3 +96,4 @@ class NaiveBayes(ClassifierBase):
 
     def _transfer_x(self, x):
         return x
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
